@@ -1,4 +1,4 @@
-zip -r lambda.zip lambda_robofleet_queries.py lambda_function.pyname: Deploy RoboFleet Lambda
+name: Deploy RoboFleet Lambda
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: zip -r lambda.zip lambda_robofleet_queries.py sns_to_slack_lambda.py
+      - run: zip -r lambda.zip lambda_robofleet_queries.py lambda_function.py
       - run: |
           aws lambda update-function-code \
             --function-name robofleet-analytics-queries \
