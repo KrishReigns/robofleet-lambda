@@ -1,4 +1,4 @@
-name: Deploy RoboFleet Lambda
+zip -r lambda.zip lambda_robofleet_queries.py lambda_function.pyname: Deploy RoboFleet Lambda
 
 on:
   push:
