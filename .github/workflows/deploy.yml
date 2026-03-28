@@ -13,14 +13,14 @@ jobs:
         with:
           python-version: 3.11
       - run: pip install pytest boto3 urllib3
-      - run: python -m pytest test_lambda.py -v
+      - run: python -m pytest tests/test_lambda.py -v
 
   deploy:
     needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: zip -r lambda.zip lambda_robofleet_queries.py lambda_function.py
+      - run: cd src && zip -r ../lambda.zip lambda_robofleet_queries.py lambda_function.py
       - run: |
           aws lambda update-function-code \
             --function-name robofleet-analytics-queries \
