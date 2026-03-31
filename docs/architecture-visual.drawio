@@ -1,0 +1,436 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36" version="29.6.6">
+  <diagram name="RoboFleet Terraform Architecture" id="robofleet-terraform-v1">
+    <mxGraphModel dx="1850" dy="973" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1780" pageHeight="940" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=18;fontStyle=1;fontColor=#232F3E;html=1;" value="RoboFleet — Serverless Fleet Telemetry Analytics on AWS (Terraform + GitHub Actions)" vertex="1">
+          <mxGeometry height="28" width="1780" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-lake" parent="1" style="text;align=left;verticalAlign=top;spacingTop=5;spacingLeft=8;strokeColor=#2D6200;fillColor=#EAF5E6;fontSize=10;fontStyle=1;fontColor=#1A4A00;rounded=1;dashed=1;dashPattern=6 3;" value="Secure Data Lake" vertex="1">
+          <mxGeometry height="215" width="545" x="200" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-report" parent="1" style="text;align=left;verticalAlign=top;spacingTop=5;spacingLeft=8;strokeColor=#6A35CC;fillColor=#F0EAFF;fontSize=10;fontStyle=1;fontColor=#3D007A;rounded=1;dashed=1;dashPattern=6 3;" value="Daily Analytics Report" vertex="1">
+          <mxGeometry height="215" width="255" x="765" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-compute" parent="1" style="text;align=left;verticalAlign=top;spacingTop=5;spacingLeft=8;strokeColor=#FF6600;fillColor=#FFF3E0;fontSize=10;fontStyle=1;fontColor=#7A3D00;rounded=1;dashed=1;dashPattern=6 3;" value="Event-Driven Processing" vertex="1">
+          <mxGeometry height="265" width="325" x="200" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-cw" parent="1" style="text;align=left;verticalAlign=top;spacingTop=5;spacingLeft=8;strokeColor=#B71C1C;fillColor=#FCE8E8;fontSize=10;fontStyle=1;fontColor=#7A0000;rounded=1;dashed=1;dashPattern=6 3;" value="Monitoring" vertex="1">
+          <mxGeometry height="265" width="335" x="545" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-alert" parent="1" style="text;align=left;verticalAlign=top;spacingTop=5;spacingLeft=8;strokeColor=#6A35CC;fillColor=#F0EAFF;fontSize=10;fontStyle=1;fontColor=#3D007A;rounded=1;dashed=1;dashPattern=6 3;" value="Alerting" vertex="1">
+          <mxGeometry height="265" width="395" x="900" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-iam" parent="1" style="text;align=left;verticalAlign=top;spacingTop=5;spacingLeft=8;strokeColor=#B85450;fillColor=#F8CECC;fontSize=11;fontStyle=1;fontColor=#7A0000;rounded=1;" value="🔐  Security (IAM)" vertex="1">
+          <mxGeometry height="130" width="280" x="28" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="sec-cicd" parent="1" style="text;align=left;verticalAlign=top;spacingTop=5;spacingLeft=8;strokeColor=#6C8EBF;fillColor=#DAE8FC;fontSize=11;fontStyle=1;fontColor=#1A4A7A;rounded=1;" value="🔄  CI/CD (GitHub Actions)" vertex="1">
+          <mxGeometry height="130" width="980" x="326" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="fleet" parent="1" style="rounded=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=10;html=1;verticalAlign=middle;align=center;whiteSpace=wrap;" value="&lt;b&gt;Robot Fleet&lt;/b&gt;&lt;br&gt;&lt;hr size=&quot;1&quot;&gt;FLEET-BOSTON-01&lt;br&gt;FLEET-SEATTLE-01&lt;br&gt;FLEET-BOSTON-02" vertex="1">
+          <mxGeometry height="100" width="155" x="28" y="73" as="geometry" />
+        </mxCell>
+        <mxCell id="i-s3" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#3F8624;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="Amazon S3&lt;br&gt;Data Lake" vertex="1">
+          <mxGeometry height="50" width="50" x="248" y="93" as="geometry" />
+        </mxCell>
+        <mxCell id="d-s3" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="robofleet-analytics-sk&lt;br&gt;AES256 · Versioned&lt;br&gt;Glacier IR @90d · Delete @365d" vertex="1">
+          <mxGeometry height="36" width="118" x="214" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="i-s3r" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#3F8624;align=center;html=1;fontSize=9;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=1;" value="S3 Athena&lt;br&gt;Results" vertex="1">
+          <mxGeometry height="40" width="40" x="438" y="188" as="geometry" />
+        </mxCell>
+        <mxCell id="i-glue" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#8C4FFF;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.glue;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="AWS Glue&lt;br&gt;Data Catalog" vertex="1">
+          <mxGeometry height="50" width="50" x="428" y="93" as="geometry" />
+        </mxCell>
+        <mxCell id="d-glue" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="robofleet_db&lt;br&gt;device_telemetry&lt;br&gt;year / month / day partitions" vertex="1">
+          <mxGeometry height="36" width="110" x="396" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="i-athena" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#8C4FFF;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.athena;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="Amazon Athena" vertex="1">
+          <mxGeometry height="50" width="50" x="614" y="93" as="geometry" />
+        </mxCell>
+        <mxCell id="d-athena" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="robofleet-workgroup&lt;br&gt;3 Named Queries&lt;br&gt;1 GB scan limit / query" vertex="1">
+          <mxGeometry height="36" width="110" x="582" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="i-la" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#FF9900;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="AWS Lambda&lt;br&gt;(Analytics)" vertex="1">
+          <mxGeometry height="50" width="50" x="808" y="93" as="geometry" />
+        </mxCell>
+        <mxCell id="d-la" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="robofleet-analytics-queries&lt;br&gt;Python 3.11 · EventBridge daily&lt;br&gt;3 queries → HTML email" vertex="1">
+          <mxGeometry height="36" width="128" x="771" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="i-ses" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#146EB4;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ses;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="Amazon SES" vertex="1">
+          <mxGeometry height="50" width="50" x="940" y="93" as="geometry" />
+        </mxCell>
+        <mxCell id="d-ses" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="Email Report&lt;br&gt;Daily HTML · Fleet health · Errors · Battery" vertex="1">
+          <mxGeometry height="28" width="130" x="900" y="158" as="geometry" />
+        </mxCell>
+        <mxCell id="i-eb" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#E7157B;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eventbridge;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="Amazon&lt;br&gt;EventBridge" vertex="1">
+          <mxGeometry height="50" width="50" x="58" y="388" as="geometry" />
+        </mxCell>
+        <mxCell id="d-eb" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;" value="Daily schedule" vertex="1">
+          <mxGeometry height="16" width="80" x="40" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="i-la2" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#FF9900;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="AWS Lambda&lt;br&gt;(Analytics Queries)" vertex="1">
+          <mxGeometry height="50" width="50" x="290" y="348" as="geometry" />
+        </mxCell>
+        <mxCell id="d-la2" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="robofleet-analytics-queries&lt;br&gt;3 parallel Athena queries&lt;br&gt;Format HTML → SES email" vertex="1">
+          <mxGeometry height="36" width="124" x="253" y="428" as="geometry" />
+        </mxCell>
+        <mxCell id="badge-queries" parent="1" style="rounded=1;fillColor=#8C4FFF;strokeColor=#5A1FCC;fontColor=#FFFFFF;fontSize=9;html=1;align=center;" value="Named Queries: fleet-health-summary&lt;br&gt;error-analysis-rca · low-battery-operational-check" vertex="1">
+          <mxGeometry height="28" width="290" x="215" y="496" as="geometry" />
+        </mxCell>
+        <mxCell id="i-lslack" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#FF9900;align=center;html=1;fontSize=9;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=1;" value="Lambda&lt;br&gt;(sns-to-slack)" vertex="1">
+          <mxGeometry height="42" width="42" x="294" y="536" as="geometry" />
+        </mxCell>
+        <mxCell id="d-lslack" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#888888;fontStyle=2;" value="optional · SNS trigger" vertex="1">
+          <mxGeometry height="18" width="100" x="265" y="602" as="geometry" />
+        </mxCell>
+        <mxCell id="i-cw" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#E7157B;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudwatch;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="Amazon&lt;br&gt;CloudWatch" vertex="1">
+          <mxGeometry height="50" width="50" x="600" y="348" as="geometry" />
+        </mxCell>
+        <mxCell id="d-cw" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="AWS/Athena metrics&lt;br&gt;AWS/S3 metrics" vertex="1">
+          <mxGeometry height="26" width="100" x="574" y="428" as="geometry" />
+        </mxCell>
+        <mxCell id="i-cwa" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#E7157B;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.alarm;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="CW Alarms (3)" vertex="1">
+          <mxGeometry height="50" width="50" x="760" y="348" as="geometry" />
+        </mxCell>
+        <mxCell id="d-cwa" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="HighDataScan · QueryFailures&lt;br&gt;S3-PutErrors" vertex="1">
+          <mxGeometry height="26" width="116" x="727" y="418" as="geometry" />
+        </mxCell>
+        <mxCell id="badge-dash" parent="1" style="rounded=1;fillColor=#B71C1C;strokeColor=#7F0000;fontColor=#FFFFFF;fontSize=9;html=1;align=center;" value="📊 Dashboard: RoboFleet-Operations&lt;br&gt;Athena scanned bytes · Query time · Active alarms" vertex="1">
+          <mxGeometry height="34" width="305" x="556" y="498" as="geometry" />
+        </mxCell>
+        <mxCell id="i-sns" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#E7157B;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.sns;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="Amazon SNS" vertex="1">
+          <mxGeometry height="50" width="50" x="955" y="388" as="geometry" />
+        </mxCell>
+        <mxCell id="d-sns" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="robofleet-alerts&lt;br&gt;Fan-out to subscribers" vertex="1">
+          <mxGeometry height="26" width="104" x="928" y="458" as="geometry" />
+        </mxCell>
+        <mxCell id="email-box" parent="1" style="rounded=1;fillColor=#0E4D92;strokeColor=#0A3560;fontColor=#FFFFFF;fontSize=10;fontStyle=1;html=1;verticalAlign=middle;align=center;" value="📧  Email Alerts" vertex="1">
+          <mxGeometry height="34" width="130" x="1110" y="345" as="geometry" />
+        </mxCell>
+        <mxCell id="d-email" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;" value="krishna1996sai@gmail.com" vertex="1">
+          <mxGeometry height="14" width="130" x="1110" y="383" as="geometry" />
+        </mxCell>
+        <mxCell id="slack-box" parent="1" style="rounded=1;fillColor=#4A154B;strokeColor=#2D0D2E;fontColor=#FFFFFF;fontSize=10;fontStyle=1;html=1;verticalAlign=middle;align=center;" value="💬  Slack Channel" vertex="1">
+          <mxGeometry height="34" width="130" x="1110" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="d-slack" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#888888;fontStyle=2;" value="optional · via webhook env var" vertex="1">
+          <mxGeometry height="14" width="140" x="1105" y="518" as="geometry" />
+        </mxCell>
+        <mxCell id="i-iam" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#DD344C;align=center;html=1;fontSize=9;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.role;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="AWS IAM" vertex="1">
+          <mxGeometry height="44" width="44" x="140" y="652" as="geometry" />
+        </mxCell>
+        <mxCell id="d-iam" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="robofleet-athena-execution-role&lt;br&gt;1 role · least-privilege&lt;br&gt;Custom policy: Athena + S3 + Glue" vertex="1">
+          <mxGeometry height="36" width="148" x="114" y="712" as="geometry" />
+        </mxCell>
+        <mxCell id="github-box" parent="1" style="rounded=1;fillColor=#24292E;strokeColor=#131921;fontColor=#FFFFFF;fontSize=10;fontStyle=1;html=1;verticalAlign=middle;align=center;" value="GitHub&lt;br&gt;KrishReigns/robofleet-lambda" vertex="1">
+          <mxGeometry height="36" width="195" x="345" y="657" as="geometry" />
+        </mxCell>
+        <mxCell id="i-gha" parent="1" style="rounded=1;fillColor=#1A1A2E;strokeColor=#0D0D1F;fontColor=#FFFFFF;fontSize=10;fontStyle=1;html=1;verticalAlign=middle;align=center;" value="⚙️ GitHub Actions" vertex="1">
+          <mxGeometry height="36" width="140" x="556" y="657" as="geometry" />
+        </mxCell>
+        <mxCell id="badge-test" parent="1" style="rounded=1;fillColor=#27AE60;strokeColor=#1E8449;fontColor=#FFFFFF;fontSize=9;html=1;align=center;" value="✅  test job&lt;br&gt;pytest · boto3 · urllib3" vertex="1">
+          <mxGeometry height="36" width="145" x="682" y="657" as="geometry" />
+        </mxCell>
+        <mxCell id="badge-deploy" parent="1" style="rounded=1;fillColor=#2874A6;strokeColor=#1A5276;fontColor=#FFFFFF;fontSize=9;html=1;align=center;" value="🚀  deploy job&lt;br&gt;zip src/ → AWS CLI update-function-code" vertex="1">
+          <mxGeometry height="36" width="220" x="877" y="657" as="geometry" />
+        </mxCell>
+        <mxCell id="badge-lambda-update" parent="1" style="rounded=1;fillColor=#FF9900;strokeColor=#CC7A00;fontColor=#FFFFFF;fontSize=9;html=1;align=center;" value="Lambda: robofleet-analytics-queries&lt;br&gt;robofleet-sns-to-slack" vertex="1">
+          <mxGeometry height="36" width="200" x="1157" y="657" as="geometry" />
+        </mxCell>
+        <mxCell id="a-f-s3" edge="1" parent="1" source="fleet" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1A4A7A;strokeWidth=2;fontSize=9;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="i-s3" value="Manual CSV upload">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-s3-g" edge="1" parent="1" source="i-s3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#8C4FFF;strokeWidth=2;fontSize=9;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="i-glue" value="catalog">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-g-a" edge="1" parent="1" source="i-glue" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#8C4FFF;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="i-athena" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-a-s3r" edge="1" parent="1" source="i-athena" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2D6200;strokeWidth=1;fontSize=8;dashed=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" target="i-s3r" value="results">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="614" y="215" />
+              <mxPoint x="478" y="215" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a-a-la" edge="1" parent="1" source="i-athena" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#8C4FFF;strokeWidth=2;fontSize=9;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="i-la" value="query results">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-la-ses" edge="1" parent="1" source="i-la" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#146EB4;strokeWidth=2;fontSize=9;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="i-ses" value="HTML email">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-eb-la2" edge="1" parent="1" source="i-eb" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E65C00;strokeWidth=2;fontSize=9;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="i-la2" value="daily trigger">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-la2-athena" edge="1" parent="1" source="i-la2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#8C4FFF;strokeWidth=1.5;fontSize=8;fontStyle=2;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="i-athena" value="Athena SQL">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="315" y="278" />
+              <mxPoint x="639" y="278" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a-cw-cwa" edge="1" parent="1" source="i-cw" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E7157B;strokeWidth=2;fontSize=9;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="i-cwa" value="threshold">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-cwa-sns" edge="1" parent="1" source="i-cwa" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6A35CC;strokeWidth=2;fontSize=9;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="i-sns" value="alarm action">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="a-sns-email" edge="1" parent="1" source="i-sns" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0E4D92;strokeWidth=2;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="email-box" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1066" y="400" />
+              <mxPoint x="1066" y="362" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a-sns-lslack" edge="1" parent="1" source="i-sns" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#888888;strokeWidth=1.5;fontSize=8;fontStyle=2;dashed=1;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="i-lslack" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1066" y="416" />
+              <mxPoint x="1066" y="557" />
+              <mxPoint x="336" y="557" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="a-sns-slack" edge="1" parent="1" source="i-sns" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#4A154B;strokeWidth=1.5;dashed=1;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="slack-box" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1066" y="416" />
+              <mxPoint x="1066" y="497" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ci1" edge="1" parent="1" source="github-box" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6C8EBF;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="i-gha" value="push to main">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ci2" edge="1" parent="1" source="i-gha" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6C8EBF;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="badge-test" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ci3" edge="1" parent="1" source="badge-test" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6C8EBF;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="badge-deploy" value="tests pass">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ci4" edge="1" parent="1" source="badge-deploy" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6C8EBF;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="badge-lambda-update" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="legend" parent="1" style="text;strokeColor=#B0BEC5;fillColor=#F5F5F5;align=center;fontSize=9;fontColor=#546E7A;rounded=1;html=1;" value="──  Data flow    ╌╌  Athena query / optional path    AES256 encryption at rest (no KMS)    1 IAM role (least-privilege)    No VPC · No QuickSight · No KMS · SES direct email reporting" vertex="1">
+          <mxGeometry height="22" width="1360" x="28" y="772" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-3" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=18;fontStyle=1;fontColor=#232F3E;html=1;" value="RoboFleet — Serverless Fleet Telemetry Analytics on AWS (Terraform + GitHub Actions)" vertex="1">
+          <mxGeometry height="28" width="1780" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-4" parent="1" style="text;align=left;verticalAlign=top;spacingTop=5;spacingLeft=8;strokeColor=#2D6200;fillColor=#EAF5E6;fontSize=10;fontStyle=1;fontColor=#1A4A00;rounded=1;dashed=1;dashPattern=6 3;" value="Secure Data Lake" vertex="1">
+          <mxGeometry height="215" width="545" x="200" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-5" parent="1" style="text;align=left;verticalAlign=top;spacingTop=5;spacingLeft=8;strokeColor=#6A35CC;fillColor=#F0EAFF;fontSize=10;fontStyle=1;fontColor=#3D007A;rounded=1;dashed=1;dashPattern=6 3;" value="Daily Analytics Report" vertex="1">
+          <mxGeometry height="215" width="255" x="765" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-6" parent="1" style="text;align=left;verticalAlign=top;spacingTop=5;spacingLeft=8;strokeColor=#FF6600;fillColor=#FFF3E0;fontSize=10;fontStyle=1;fontColor=#7A3D00;rounded=1;dashed=1;dashPattern=6 3;" value="Event-Driven Processing" vertex="1">
+          <mxGeometry height="265" width="325" x="200" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-7" parent="1" style="text;align=left;verticalAlign=top;spacingTop=5;spacingLeft=8;strokeColor=#B71C1C;fillColor=#FCE8E8;fontSize=10;fontStyle=1;fontColor=#7A0000;rounded=1;dashed=1;dashPattern=6 3;" value="Monitoring" vertex="1">
+          <mxGeometry height="265" width="335" x="545" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-8" parent="1" style="text;align=left;verticalAlign=top;spacingTop=5;spacingLeft=8;strokeColor=#6A35CC;fillColor=#F0EAFF;fontSize=10;fontStyle=1;fontColor=#3D007A;rounded=1;dashed=1;dashPattern=6 3;" value="Alerting" vertex="1">
+          <mxGeometry height="265" width="395" x="900" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-9" parent="1" style="text;align=left;verticalAlign=top;spacingTop=5;spacingLeft=8;strokeColor=#B85450;fillColor=#F8CECC;fontSize=11;fontStyle=1;fontColor=#7A0000;rounded=1;" value="🔐  Security (IAM)" vertex="1">
+          <mxGeometry height="130" width="280" x="28" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-10" parent="1" style="text;align=left;verticalAlign=top;spacingTop=5;spacingLeft=8;strokeColor=#6C8EBF;fillColor=#DAE8FC;fontSize=11;fontStyle=1;fontColor=#1A4A7A;rounded=1;" value="🔄  CI/CD (GitHub Actions)" vertex="1">
+          <mxGeometry height="130" width="980" x="326" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-11" parent="1" style="rounded=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=10;html=1;verticalAlign=middle;align=center;whiteSpace=wrap;" value="&lt;b&gt;Robot Fleet&lt;/b&gt;&lt;br&gt;&lt;hr size=&quot;1&quot;&gt;FLEET-BOSTON-01&lt;br&gt;FLEET-SEATTLE-01&lt;br&gt;FLEET-BOSTON-02" vertex="1">
+          <mxGeometry height="100" width="155" x="28" y="73" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-12" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#3F8624;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="Amazon S3&lt;br&gt;Data Lake" vertex="1">
+          <mxGeometry height="50" width="50" x="248" y="93" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-13" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="robofleet-analytics-sk&lt;br&gt;AES256 · Versioned&lt;br&gt;Glacier IR @90d · Delete @365d" vertex="1">
+          <mxGeometry height="36" width="118" x="214" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-14" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#3F8624;align=center;html=1;fontSize=9;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=1;" value="S3 Athena&lt;br&gt;Results" vertex="1">
+          <mxGeometry height="40" width="40" x="431" y="218" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-15" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#8C4FFF;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.glue;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="AWS Glue&lt;br&gt;Data Catalog" vertex="1">
+          <mxGeometry height="50" width="50" x="428" y="93" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-16" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="robofleet_db&lt;br&gt;device_telemetry&lt;br&gt;year / month / day partitions" vertex="1">
+          <mxGeometry height="36" width="110" x="396" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-17" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#8C4FFF;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.athena;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="Amazon Athena" vertex="1">
+          <mxGeometry height="50" width="50" x="614" y="93" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-18" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="robofleet-workgroup&lt;br&gt;3 Named Queries&lt;br&gt;1 GB scan limit / query" vertex="1">
+          <mxGeometry height="36" width="110" x="582" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-19" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#FF9900;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="AWS Lambda&lt;br&gt;(Analytics)" vertex="1">
+          <mxGeometry height="50" width="50" x="808" y="93" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-20" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="robofleet-analytics-queries&lt;br&gt;Python 3.11 · EventBridge daily&lt;br&gt;3 queries → HTML email" vertex="1">
+          <mxGeometry height="36" width="128" x="771" y="175" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-21" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#146EB4;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.ses;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="Amazon SES" vertex="1">
+          <mxGeometry height="50" width="50" x="940" y="93" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-22" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="Email Report&lt;br&gt;Daily HTML · Fleet health · Errors · Battery" vertex="1">
+          <mxGeometry height="28" width="130" x="900" y="158" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-23" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#E7157B;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.eventbridge;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="Amazon&lt;br&gt;EventBridge" vertex="1">
+          <mxGeometry height="50" width="50" x="58" y="388" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-25" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#FF9900;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="AWS Lambda&lt;br&gt;(Analytics Queries)" vertex="1">
+          <mxGeometry height="50" width="50" x="290" y="348" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-26" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="robofleet-analytics-queries&lt;br&gt;3 parallel Athena queries&lt;br&gt;Format HTML → SES email" vertex="1">
+          <mxGeometry height="36" width="124" x="253" y="428" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-27" parent="1" style="rounded=1;fillColor=#8C4FFF;strokeColor=#5A1FCC;fontColor=#FFFFFF;fontSize=9;html=1;align=center;" value="Named Queries: fleet-health-summary&lt;br&gt;error-analysis-rca · low-battery-operational-check" vertex="1">
+          <mxGeometry height="28" width="290" x="215" y="496" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-28" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#FF9900;align=center;html=1;fontSize=9;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=1;" value="Lambda&lt;br&gt;(sns-to-slack)" vertex="1">
+          <mxGeometry height="42" width="42" x="294" y="536" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-30" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#E7157B;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.cloudwatch;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="Amazon&lt;br&gt;CloudWatch" vertex="1">
+          <mxGeometry height="50" width="50" x="600" y="348" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-31" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="AWS/Athena metrics&lt;br&gt;AWS/S3 metrics" vertex="1">
+          <mxGeometry height="26" width="100" x="574" y="428" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-32" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#E7157B;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.alarm;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="CW Alarms (3)" vertex="1">
+          <mxGeometry height="50" width="50" x="760" y="348" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-33" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="HighDataScan · QueryFailures&lt;br&gt;S3-PutErrors" vertex="1">
+          <mxGeometry height="26" width="116" x="727" y="418" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-34" parent="1" style="rounded=1;fillColor=#B71C1C;strokeColor=#7F0000;fontColor=#FFFFFF;fontSize=9;html=1;align=center;" value="📊 Dashboard: RoboFleet-Operations&lt;br&gt;Athena scanned bytes · Query time · Active alarms" vertex="1">
+          <mxGeometry height="34" width="305" x="556" y="498" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-35" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#E7157B;align=center;html=1;fontSize=10;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.sns;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="Amazon SNS" vertex="1">
+          <mxGeometry height="50" width="50" x="955" y="388" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-36" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="robofleet-alerts&lt;br&gt;Fan-out to subscribers" vertex="1">
+          <mxGeometry height="26" width="104" x="928" y="458" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-37" parent="1" style="rounded=1;fillColor=#0E4D92;strokeColor=#0A3560;fontColor=#FFFFFF;fontSize=10;fontStyle=1;html=1;verticalAlign=middle;align=center;" value="📧  Email Alerts" vertex="1">
+          <mxGeometry height="34" width="130" x="1110" y="345" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-38" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;" value="krishna1996sai@gmail.com" vertex="1">
+          <mxGeometry height="14" width="130" x="1110" y="383" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-39" parent="1" style="rounded=1;fillColor=#4A154B;strokeColor=#2D0D2E;fontColor=#FFFFFF;fontSize=10;fontStyle=1;html=1;verticalAlign=middle;align=center;" value="💬  Slack Channel" vertex="1">
+          <mxGeometry height="34" width="130" x="1110" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-40" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#888888;fontStyle=2;" value="optional · via webhook env var" vertex="1">
+          <mxGeometry height="14" width="140" x="1105" y="518" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-41" parent="1" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;strokeColor=none;fillColor=#DD344C;align=center;html=1;fontSize=9;fontStyle=1;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.role;verticalLabelPosition=bottom;verticalAlign=top;labelBackgroundColor=none;spacingTop=2;" value="AWS IAM" vertex="1">
+          <mxGeometry height="44" width="44" x="140" y="652" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-42" parent="1" style="text;strokeColor=none;fillColor=none;align=center;fontSize=8;fontColor=#666666;html=1;" value="robofleet-athena-execution-role&lt;br&gt;1 role · least-privilege&lt;br&gt;Custom policy: Athena + S3 + Glue" vertex="1">
+          <mxGeometry height="36" width="148" x="114" y="712" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-43" parent="1" style="rounded=1;fillColor=#24292E;strokeColor=#131921;fontColor=#FFFFFF;fontSize=10;fontStyle=1;html=1;verticalAlign=middle;align=center;" value="GitHub&lt;br&gt;KrishReigns/robofleet-lambda" vertex="1">
+          <mxGeometry height="36" width="195" x="345" y="657" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-44" parent="1" style="rounded=1;fillColor=#1A1A2E;strokeColor=#0D0D1F;fontColor=#FFFFFF;fontSize=10;fontStyle=1;html=1;verticalAlign=middle;align=center;" value="⚙️ GitHub Actions" vertex="1">
+          <mxGeometry height="36" width="140" x="556" y="657" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-45" parent="1" style="rounded=1;fillColor=#27AE60;strokeColor=#1E8449;fontColor=#FFFFFF;fontSize=9;html=1;align=center;" value="✅  test job&lt;br&gt;pytest · boto3 · urllib3" vertex="1">
+          <mxGeometry height="36" width="145" x="682" y="657" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-46" parent="1" style="rounded=1;fillColor=#2874A6;strokeColor=#1A5276;fontColor=#FFFFFF;fontSize=9;html=1;align=center;" value="🚀  deploy job&lt;br&gt;zip src/ → AWS CLI update-function-code" vertex="1">
+          <mxGeometry height="36" width="220" x="877" y="657" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-47" parent="1" style="rounded=1;fillColor=#FF9900;strokeColor=#CC7A00;fontColor=#FFFFFF;fontSize=9;html=1;align=center;" value="Lambda: robofleet-analytics-queries&lt;br&gt;robofleet-sns-to-slack" vertex="1">
+          <mxGeometry height="36" width="200" x="1157" y="657" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-48" edge="1" parent="1" source="8DlN2Og1DQx5TLc4aYN5-11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#1A4A7A;strokeWidth=2;fontSize=9;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="8DlN2Og1DQx5TLc4aYN5-12" value="Manual CSV upload">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-49" edge="1" parent="1" source="8DlN2Og1DQx5TLc4aYN5-12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#8C4FFF;strokeWidth=2;fontSize=9;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="8DlN2Og1DQx5TLc4aYN5-15" value="catalog">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-50" edge="1" parent="1" source="8DlN2Og1DQx5TLc4aYN5-15" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#8C4FFF;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="8DlN2Og1DQx5TLc4aYN5-17" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-51" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#2D6200;strokeWidth=1;fontSize=8;dashed=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" value="results">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="614" y="237" />
+            </Array>
+            <mxPoint x="614" y="165" as="sourcePoint" />
+            <mxPoint x="471" y="237" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-52" edge="1" parent="1" source="8DlN2Og1DQx5TLc4aYN5-17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#8C4FFF;strokeWidth=2;fontSize=9;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="8DlN2Og1DQx5TLc4aYN5-19" value="query results">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-53" edge="1" parent="1" source="8DlN2Og1DQx5TLc4aYN5-19" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#146EB4;strokeWidth=2;fontSize=9;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="8DlN2Og1DQx5TLc4aYN5-21" value="HTML email">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-54" edge="1" parent="1" source="8DlN2Og1DQx5TLc4aYN5-23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E65C00;strokeWidth=2;fontSize=9;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="8DlN2Og1DQx5TLc4aYN5-25" value="daily trigger">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-55" edge="1" parent="1" source="8DlN2Og1DQx5TLc4aYN5-25" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#8C4FFF;strokeWidth=1.5;fontSize=8;fontStyle=2;dashed=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="8DlN2Og1DQx5TLc4aYN5-17" value="Athena SQL">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="315" y="278" />
+              <mxPoint x="639" y="278" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-56" edge="1" parent="1" source="8DlN2Og1DQx5TLc4aYN5-30" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#E7157B;strokeWidth=2;fontSize=9;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="8DlN2Og1DQx5TLc4aYN5-32" value="threshold">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-57" edge="1" parent="1" source="8DlN2Og1DQx5TLc4aYN5-32" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6A35CC;strokeWidth=2;fontSize=9;fontStyle=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="8DlN2Og1DQx5TLc4aYN5-35" value="alarm action">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-58" edge="1" parent="1" source="8DlN2Og1DQx5TLc4aYN5-35" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#0E4D92;strokeWidth=2;exitX=1;exitY=0.3;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="8DlN2Og1DQx5TLc4aYN5-37" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1066" y="400" />
+              <mxPoint x="1066" y="362" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-59" edge="1" parent="1" source="8DlN2Og1DQx5TLc4aYN5-35" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#888888;strokeWidth=1.5;fontSize=8;fontStyle=2;dashed=1;exitX=1;exitY=0.7;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1066" y="416" />
+              <mxPoint x="1066" y="557" />
+              <mxPoint x="336" y="557" />
+            </Array>
+            <mxPoint x="340" y="557" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-60" edge="1" parent="1" source="8DlN2Og1DQx5TLc4aYN5-35" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#4A154B;strokeWidth=1.5;dashed=1;exitX=1;exitY=0.7;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="8DlN2Og1DQx5TLc4aYN5-39" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1066" y="416" />
+              <mxPoint x="1066" y="497" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-61" edge="1" parent="1" source="8DlN2Og1DQx5TLc4aYN5-43" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6C8EBF;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="8DlN2Og1DQx5TLc4aYN5-44" value="push to main">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-62" edge="1" parent="1" source="8DlN2Og1DQx5TLc4aYN5-44" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6C8EBF;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="8DlN2Og1DQx5TLc4aYN5-45" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-63" edge="1" parent="1" source="8DlN2Og1DQx5TLc4aYN5-45" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6C8EBF;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="8DlN2Og1DQx5TLc4aYN5-46" value="tests pass">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-64" edge="1" parent="1" source="8DlN2Og1DQx5TLc4aYN5-46" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6C8EBF;strokeWidth=2;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=1;" target="8DlN2Og1DQx5TLc4aYN5-47" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="8DlN2Og1DQx5TLc4aYN5-65" parent="1" style="text;strokeColor=#B0BEC5;fillColor=#F5F5F5;align=center;fontSize=9;fontColor=#546E7A;rounded=1;html=1;" value="──  Data flow    ╌╌  Athena query / optional path    AES256 encryption at rest (no KMS)    1 IAM role (least-privilege)    No VPC · No QuickSight · No KMS · SES direct email reporting" vertex="1">
+          <mxGeometry height="22" width="1360" x="28" y="772" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
