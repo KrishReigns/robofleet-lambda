@@ -98,6 +98,17 @@ data "aws_iam_policy_document" "athena_s3_access" {
     ]
   }
 
+  # SES: send HTML email analytics reports
+  statement {
+    sid    = "SESEmailSend"
+    effect = "Allow"
+    actions = [
+      "ses:SendEmail",
+      "ses:SendRawEmail",
+    ]
+    resources = ["*"]
+  }
+
   # CloudWatch Logs: Lambda needs to write execution logs
   statement {
     sid    = "CloudWatchLogs"

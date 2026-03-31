@@ -63,3 +63,18 @@ output "next_step_athena_query" {
   description = "Run this in Athena console after terraform apply to load partitions"
   value       = "MSCK REPAIR TABLE ${aws_glue_catalog_database.robofleet.name}.${aws_glue_catalog_table.device_telemetry.name};"
 }
+
+output "analytics_lambda_arn" {
+  description = "ARN of the analytics Lambda function"
+  value       = aws_lambda_function.analytics_queries.arn
+}
+
+output "analytics_lambda_name" {
+  description = "Name of the analytics Lambda — used by GitHub Actions update-function-code"
+  value       = aws_lambda_function.analytics_queries.function_name
+}
+
+output "eventbridge_rule_arn" {
+  description = "EventBridge rule that triggers the analytics Lambda daily at 08:00 UTC"
+  value       = aws_cloudwatch_event_rule.daily_analytics.arn
+}

@@ -38,3 +38,16 @@ variable "athena_bytes_scanned_alarm_threshold" {
   type        = number
   default     = 104857600
 }
+
+variable "ses_sender_email" {
+  description = "SES verified sender email address for the daily analytics report."
+  type        = string
+  default     = "krishna1996sai@gmail.com"
+}
+
+variable "slack_webhook_url" {
+  description = "Slack incoming webhook URL. Leave empty to skip sns-to-slack Lambda deployment."
+  type        = string
+  default     = ""
+  sensitive   = true
+}
